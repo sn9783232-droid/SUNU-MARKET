@@ -4,31 +4,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SUNU MARKET | Boutique internationale</title>
+<title>SUNU MARKET - International Shopping</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f6fa;color:#18212f}
+body{font-family:Arial,sans-serif;background:#f7f8fa;color:#172b40}
 header{background:#102b46;color:white;padding:22px 15px;text-align:center}
-header h1{font-size:28px;letter-spacing:2px}
-header p{margin-top:7px;color:#d8e5f2}
-nav{background:#173e5e;padding:14px;text-align:center}
-nav a{color:white;text-decoration:none;margin:0 10px;font-size:14px}
-.hero{padding:45px 20px;text-align:center;background:linear-gradient(135deg,#102b46,#28749a);color:white}
-.hero h2{font-size:30px;margin-bottom:12px}
-.hero p{margin-bottom:20px}
-.btn{display:inline-block;background:#e7b957;color:#102b46;padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:bold}
-.container{padding:25px 15px;max-width:1100px;margin:auto}
-h2.section{margin-bottom:20px}
-.categories,.products{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.category,.product{background:white;padding:18px;border-radius:10px;text-align:center;box-shadow:0 2px 8px #0000000d}
-.category{font-weight:bold}
-.product .picture{font-size:48px;margin-bottom:12px}
-.product h3{font-size:16px;margin-bottom:8px}
-.price{color:#176c50;font-weight:bold;margin:10px}
-.product button{background:#102b46;color:white;border:0;padding:10px 14px;border-radius:5px}
-.info{background:#e8eef4;padding:22px;border-radius:10px;margin-top:25px;line-height:1.7}
-footer{background:#102b46;color:white;text-align:center;padding:25px;margin-top:30px}
-@media(min-width:700px){.categories{grid-template-columns:repeat(4,1fr)}.products{grid-template-columns:repeat(3,1fr)}}
+header h1{font-size:29px;letter-spacing:2px}
+header p{margin-top:7px;color:#d9e7f3}
+nav{background:#173e5e;padding:15px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:14px}
+.hero{padding:55px 18px;text-align:center;background:linear-gradient(135deg,#102b46,#28749a);color:white}
+.hero h2{font-size:30px;margin-bottom:15px}
+.hero p{line-height:1.6;margin-bottom:22px}
+.btn{display:inline-block;background:#e7b957;color:#102b46;padding:13px 23px;border-radius:6px;text-decoration:none;font-weight:bold}
+.container{max-width:1100px;margin:auto;padding:30px 15px}
+.section-title{font-size:23px;margin-bottom:20px}
+.categories,.products{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.category,.product{background:white;padding:18px;border-radius:12px;text-align:center;box-shadow:0 3px 12px #0000000b}
+.category{font-weight:bold;padding:23px 10px}
+.category span{display:block;font-size:32px;margin-bottom:9px}
+.product .picture{font-size:55px;margin-bottom:12px}
+.product h3{font-size:17px;margin-bottom:9px}
+.product p{font-size:13px;color:#687789}
+.price{color:#176c50;font-weight:bold;margin:13px}
+.product button{background:#102b46;color:white;border:0;padding:11px 15px;border-radius:6px;font-weight:bold}
 </style>
 </head>
 <body>
@@ -44,60 +43,84 @@ footer{background:#102b46;color:white;text-align:center;padding:25px;margin-top:
 </nav>
 <section class="hero" id="accueil">
 <h2>Bienvenue chez SUNU MARKET</h2>
-<p>Découvrez une nouvelle expérience de shopping en ligne.</p>
+<p>Découvrez des produits de qualité et une expérience d'achat simple, partout dans le monde.</p>
 <a class="btn" href="#produits">Découvrir la boutique</a>
 </section>
 <main class="container">
 <section id="categories">
-<h2 class="section">Nos catégories</h2>
+<h2 class="section-title">Nos catégories</h2>
 <div class="categories">
-<div class="category">📱 Électronique</div>
-<div class="category">👗 Mode</div>
-<div class="category">💄 Beauté</div>
-<div class="category">🏠 Maison</div>
+<div class="category"><span>📱</span>Électronique</div>
+<div class="category"><span>👗</span>Mode</div>
+<div class="category"><span>💄</span>Beauté</div>
+<div class="category"><span>🏠</span>Maison</div>
 </div>
 </section>
-<section id="produits" style="margin-top:35px">
-<h2 class="section">Produits en vedette</h2>
+</main>
+
+<section class="container" id="produits">
+<h2 class="section-title">Nos produits populaires</h2>
 <div class="products">
 <div class="product">
 <div class="picture">🎧</div>
 <h3>Casque Bluetooth</h3>
-<p>Son de qualité et confort.</p>
+<p>Son haute qualité et confort.</p>
 <div class="price">15 000 FCFA</div>
-<button onclick="order('Casque Bluetooth')">Commander</button>
+<button onclick="addCart('Casque Bluetooth',15000)">Ajouter au panier</button>
 </div>
 <div class="product">
 <div class="picture">⌚</div>
 <h3>Montre connectée</h3>
-<p>Élégance et technologie.</p>
+<p>Technologie et élégance.</p>
 <div class="price">20 000 FCFA</div>
-<button onclick="order('Montre connectée')">Commander</button>
+<button onclick="addCart('Montre connectée',20000)">Ajouter au panier</button>
 </div>
 <div class="product">
 <div class="picture">🎒</div>
 <h3>Sac tendance</h3>
-<p>Style pour tous les jours.</p>
+<p>Style et praticité au quotidien.</p>
 <div class="price">12 000 FCFA</div>
-<button onclick="order('Sac tendance')">Commander</button>
+<button onclick="addCart('Sac tendance',12000)">Ajouter au panier</button>
 </div>
 </div>
 </section>
-<section class="info" id="contact">
+
+<section class="container">
+<div class="info" style="background:#e8eef4;padding:22px;border-radius:10px">
+<h2>Votre panier : <span id="count">0</span> article(s)</h2>
+<p id="cart">Votre panier est vide.</p>
+<h3>Total : <span id="total">0</span> FCFA</h3>
+<button onclick="clearCart()" style="margin-top:12px;padding:10px;background:#102b46;color:white;border:0;border-radius:5px">Vider le panier</button>
+</div>
+</section>
+
+<section class="container" id="contact">
 <h2>Une boutique ouverte sur le monde</h2>
-<p>SUNU MARKET est une plateforme de commerce en ligne conçue pour faciliter les achats au Sénégal et à l'international.</p>
-<p>Contact : bientôt disponible.</p>
+<p>SUNU MARKET facilite vos achats au Sénégal et à l'international.</p>
 </section>
-</main>
-<footer>
+
+<footer style="background:#102b46;color:white;text-align:center;padding:25px">
 <p>© 2026 SUNU MARKET - Tous droits réservés.</p>
-<p>Votre marché, sans frontières.</p>
 </footer>
+
 <script>
-function order(product){
-alert("Merci pour votre intérêt pour "+product+". Les commandes seront bientôt disponibles.");
+let items=[];
+function addCart(name,price){
+items.push({name,price});
+document.getElementById('count').textContent=items.length;
+document.getElementById('cart').textContent=items.map(x=>x.name).join(', ');
+document.getElementById('total').textContent=items.reduce((s,x)=>s+x.price,0).toLocaleString('fr-FR');
+}
+function clearCart(){
+items=[];
+document.getElementById('count').textContent=0;
+document.getElementById('cart').textContent='Votre panier est vide.';
+document.getElementById('total').textContent=0;
 }
 </script>
 </body>
-                        </html>
+  </html>
+
+
+
                         
