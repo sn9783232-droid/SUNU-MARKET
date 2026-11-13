@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -39,12 +38,10 @@ button{cursor:pointer}
 </style>
 </head>
 <body>
-
 <header>
 <h1>SUNU MARKET</h1>
 <p>Votre marché, sans frontières.</p>
 </header>
-
 <nav>
 <a href="#accueil">Accueil</a>
 <a href="#categories">Catégories</a>
@@ -52,13 +49,11 @@ button{cursor:pointer}
 <a href="#panier">Panier</a>
 <a href="#contact">Contact</a>
 </nav>
-
 <section class="hero" id="accueil">
 <h2>Bienvenue chez SUNU MARKET</h2>
 <p>Découvrez des produits de qualité et une expérience d'achat simple, partout dans le monde.</p>
 <a class="btn" href="#produits">Découvrir la boutique</a>
 </section>
-
 <main class="container">
 <section id="categories">
 <h2 class="section-title">Nos catégories</h2>
@@ -70,56 +65,45 @@ button{cursor:pointer}
 </div>
 </section>
 </main>
-
 <section class="container" id="produits">
 <h2 class="section-title">Nos produits populaires</h2>
 <div class="products">
-
 <div class="product">
-<div class="picture">🎧</div>
-<h3>Casque Bluetooth</h3>
-<p>Son haute qualité et confort.</p>
-<div class="price">15 000 FCFA</div>
+<div class="picture">🎧</div><h3>Casque Bluetooth</h3>
+<p>Son haute qualité et confort.</p><div class="price">15 000 FCFA</div>
 <button onclick="addCart('Casque Bluetooth',15000)">Ajouter au panier</button>
 </div>
-
 <div class="product">
-<div class="picture">⌚</div>
-<h3>Montre connectée</h3>
-<p>Technologie et élégance.</p>
-<div class="price">20 000 FCFA</div>
+<div class="picture">⌚</div><h3>Montre connectée</h3>
+<p>Technologie et élégance.</p><div class="price">20 000 FCFA</div>
 <button onclick="addCart('Montre connectée',20000)">Ajouter au panier</button>
 </div>
-
 <div class="product">
-<div class="picture">🎒</div>
-<h3>Sac tendance</h3>
-<p>Style et praticité au quotidien.</p>
-<div class="price">12 000 FCFA</div>
+<div class="picture">🎒</div><h3>Sac tendance</h3>
+<p>Style et praticité au quotidien.</p><div class="price">12 000 FCFA</div>
 <button onclick="addCart('Sac tendance',12000)">Ajouter au panier</button>
 </div>
-
 </div>
 </section>
-
 <section class="container" id="panier">
 <h2 class="section-title">🛒 Mon panier</h2>
 <div class="cart-box">
 <h3>Articles : <span id="count">0</span></h3>
 <div id="cart">Votre panier est vide.</div>
 <p class="total">Total : <span id="total">0</span> FCFA</p>
-<button class="cart-button danger" onclick="clearCart()">Vider le panier</button>
-<br>
-<a class="whatsapp" href="#" onclick="checkout();return false;">Payer avec PayDunya</a>
-<p style="font-size:12px;margin-top:12px">La commande sera envoyée au vendeur pour confirmation.</p>
+<button class="cart-button danger" onclick="clearCart()">Vider le panier</button><br>
+<button class="cart-button" onclick="checkout()">Payer avec PayDunya</button>
+<p style="font-size:12px;margin-top:12px">Le paiement sera lancé via PayDunya si le service est correctement configuré.</p>
 </div>
 </section>
-
 <section class="container" id="contact">
 <h2>Une boutique ouverte sur le monde</h2>
 <p>SUNU MARKET facilite vos achats au Sénégal et à l'international.</p>
+<h2 style="margin-top:20px">Contact et paiement</h2>
+<p><strong>Orange Money</strong></p><p>+221 78 872 79 67</p>
+<a class="whatsapp" href="https://wa.me/221788727967">Contacter sur WhatsApp</a>
+<p style="margin-top:12px;font-size:12px">Le paiement est à confirmer avec le vendeur avant tout envoi.</p>
 </section>
-
 <section style="background:#c6a66b;color:white;text-align:center;padding:30px 15px;margin-top:30px">
 <h2>SUNU MARKET EST À VENDRE</h2>
 <p>Une boutique en ligne déjà créée et publiée.</p>
@@ -127,142 +111,93 @@ button{cursor:pointer}
 <p>Prix négociable selon votre proposition.</p>
 <a class="btn" href="https://wa.me/221788727967">Contacter le vendeur</a>
 </section>
-
-<section style="background:#fff8e8;padding:20px;text-align:center;margin:20px;border-radius:10px">
-<h2>Contact et paiement</h2>
-<p><strong>Orange Money</strong></p>
-<p>+221 78 872 79 67</p>
-<a class="whatsapp" href="https://wa.me/221788727967">Contacter sur WhatsApp</a>
-<p style="margin-top:12px;font-size:12px">Le paiement est à confirmer avec le vendeur avant tout envoi.</p>
-</section>
-
 <footer style="background:#102b46;color:white;text-align:center;padding:25px">
 <p>© 2026 SUNU MARKET - Tous droits réservés.</p>
 </footer>
-
 <script>
 let items=[];
 
 function addCart(name,price){
-let found=items.find(item=>item.name===name);
-if(found){
-found.quantity++;
-}else{
-items.push({name:name,price:price,quantity:1});
-}
-renderCart();
+  let found=items.find(item=>item.name===name);
+  if(found){found.quantity++;}
+  else{items.push({name:name,price:price,quantity:1});}
+  renderCart();
 }
 
 function renderCart(){
-let cart=document.getElementById('cart');
-let count=document.getElementById('count');
-let total=document.getElementById('total');
-
-count.textContent=items.reduce((s,x)=>s+x.quantity,0);
-
-if(items.length===0){
-cart.textContent='Votre panier est vide.';
-total.textContent='0';
-return;
-}
-
-cart.innerHTML='';
-let sum=0;
-
-items.forEach((item,index)=>{
-sum+=item.price*item.quantity;
-
-let line=document.createElement('div');
-line.className='cart-line';
-
-let name=document.createElement('strong');
-name.textContent=item.name;
-
-let details=document.createElement('p');
-details.textContent=item.price.toLocaleString('fr-FR')+' FCFA × '+item.quantity;
-
-let minus=document.createElement('button');
-minus.textContent='−';
-minus.onclick=()=>changeQuantity(index,-1);
-
-let plus=document.createElement('button');
-plus.textContent='+';
-plus.onclick=()=>changeQuantity(index,1);
-
-let remove=document.createElement('button');
-remove.textContent='Supprimer';
-remove.className='danger';
-remove.onclick=()=>removeItem(index);
-
-line.append(name,details,minus,plus,remove);
-cart.appendChild(line);
-});
-
-total.textContent=sum.toLocaleString('fr-FR');
+  const cart=document.getElementById('cart');
+  const count=document.getElementById('count');
+  const total=document.getElementById('total');
+  count.textContent=items.reduce((sum,item)=>sum+item.quantity,0);
+  if(items.length===0){
+    cart.textContent='Votre panier est vide.';
+    total.textContent='0';
+    return;
+  }
+  cart.innerHTML='';
+  let sum=0;
+  items.forEach((item,index)=>{
+    sum+=item.price*item.quantity;
+    const line=document.createElement('div');
+    line.className='cart-line';
+    const name=document.createElement('strong');
+    name.textContent=item.name;
+    const details=document.createElement('p');
+    details.textContent=item.price.toLocaleString('fr-FR')+' FCFA × '+item.quantity;
+    const minus=document.createElement('button');
+    minus.textContent='−';
+    minus.onclick=()=>changeQuantity(index,-1);
+    const plus=document.createElement('button');
+    plus.textContent='+';
+    plus.onclick=()=>changeQuantity(index,1);
+    const remove=document.createElement('button');
+    remove.textContent='Supprimer';
+    remove.className='danger';
+    remove.onclick=()=>removeItem(index);
+    line.append(name,details,minus,plus,remove);
+    cart.appendChild(line);
+  });
+  total.textContent=sum.toLocaleString('fr-FR');
 }
 
 function changeQuantity(index,change){
-items[index].quantity+=change;
-if(items[index].quantity<=0){
-items.splice(index,1);
-}
-renderCart();
+  items[index].quantity+=change;
+  if(items[index].quantity<=0){items.splice(index,1);}
+  renderCart();
 }
 
 function removeItem(index){
-items.splice(index,1);
-renderCart();
+  items.splice(index,1);
+  renderCart();
+}
+
+function clearCart(){
+  items=[];
+  renderCart();
 }
 
 async function checkout(){
-if(items.length===0){
-alert('Votre panier est vide.');
-return;
+  if(items.length===0){
+    alert('Votre panier est vide.');
+    return;
+  }
+  try{
+    const response=await fetch('https://pbegzmbiyyygruxgtdjd.supabase.co/functions/v1/paydun',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({items:items})
+    });
+    const result=await response.json();
+    if(!response.ok || !result.payment_url){
+      throw new Error(result.error || 'Paiement indisponible');
+    }
+    window.location.href=result.payment_url;
+  }catch(error){
+    alert('Erreur de paiement : '+error.message);
+  }
 }
-try{
-const response=await fetch('https://pbegzmbiyyygruxgtdjd.supabase.co/functions/v1/paydun',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body:JSON.stringify({items:items})
-});
-const result=await response.json();
-if(!response.ok || !result.payment_url){
-throw new Error(result.error || 'Paiement indisponible');
-}
-window.location.href=result.payment_url;
-}catch(error){
-alert('Erreur de paiement : '+error.message);
-}
-}
-items=[];
-renderCart();
-}
-
-function checkout(){
-if(items.length===0){
-alert('Votre panier est vide.');
-return;
-}
-
-let message='Bonjour SUNU MARKET, je souhaite commander :%0A';
-let total=0;
-
-items.forEach(item=>{
-message+=encodeURIComponent(
-item.name+' - Quantité : '+item.quantity+
-' - Sous-total : '+(item.price*item.quantity).toLocaleString('fr-FR')+' FCFA'
-)+'%0A';
-total+=item.price*item.quantity;
-});
-
-message+=encodeURIComponent('Total : '+total.toLocaleString('fr-FR')+' FCFA');
-message+='%0A'+encodeURIComponent('Merci de confirmer ma commande.');
-
-window.open('https://wa.me/221788727967?text='+message,'_blank');
-}
-
 renderCart();
 </script>
-
 </body>
 </html>
+
