@@ -214,7 +214,26 @@ items.splice(index,1);
 renderCart();
 }
 
-function clearCart(){
+async function checkout(){
+if(items.length===0){
+alert('Votre panier est vide.');
+return;
+}
+try{
+const response=await fetch('https://pbegzmbiyyygruxgtdjd.supabase.co/functions/v1/paydun',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({items:items})
+});
+const result=await response.json();
+if(!response.ok || !result.payment_url){
+throw new Error(result.error || 'Paiement indisponible');
+}
+window.location.href=result.payment_url;
+}catch(error){
+alert('Erreur de paiement : '+error.message);
+}
+}
 items=[];
 renderCart();
 }
